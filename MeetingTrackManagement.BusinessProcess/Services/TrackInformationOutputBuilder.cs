@@ -12,6 +12,7 @@ namespace MeetingTrackManagement.BusinessProcess.Services
         public List<string> BuildTrackInfoOutput(List<Track> tracks)
         {
             List<string> formatedTrackInfomation = new List<string>();
+            string timeFormat = "hh':'mm";
 
             foreach (Track track in tracks)
             {
@@ -25,7 +26,7 @@ namespace MeetingTrackManagement.BusinessProcess.Services
                     formatedTrackInfomation.Add($" {morningTalkStartTime} AM { track.MorningSession.Talks[talkCounter].Title} {talkDuration}min");
                     morningSessionTimeSpan =
                         TimeSpan.FromMinutes(morningSessionTimeSpan.TotalMinutes + talkDuration );
-                    morningTalkStartTime = morningSessionTimeSpan.ToString("hh':'mm");
+                    morningTalkStartTime = morningSessionTimeSpan.ToString(timeFormat);
 
                 }
                 formatedTrackInfomation.Add("12:00PM Lunch");
@@ -40,7 +41,7 @@ namespace MeetingTrackManagement.BusinessProcess.Services
 
                     formatedTrackInfomation.Add($"{afternoonTalkStartTime} PM  {track.AfternoonSession.Talks[talkCounter].Title} {talkDuration}min");
                     afternoonSessionTimeSpan = TimeSpan.FromMinutes(afternoonSessionTimeSpan.TotalMinutes + talkDuration);
-                    afternoonTalkStartTime = afternoonSessionTimeSpan.ToString("hh':'mm");
+                    afternoonTalkStartTime = afternoonSessionTimeSpan.ToString(timeFormat);
 
                 }
 
@@ -48,7 +49,7 @@ namespace MeetingTrackManagement.BusinessProcess.Services
                 afternoonSessionTimeSpan = afternoonSessionTimeSpan < TimeSpan.FromMinutes(TimeSpan.FromHours(4).TotalMinutes) ? afternoonSessionTimeSpan = TimeSpan.FromMinutes(TimeSpan.FromHours(4).TotalMinutes) :
                     TimeSpan.FromMinutes(TimeSpan.FromHours(5).TotalMinutes);         
                 
-                afternoonTalkStartTime = afternoonSessionTimeSpan.ToString("hh':'mm");
+                afternoonTalkStartTime = afternoonSessionTimeSpan.ToString(timeFormat);
                 formatedTrackInfomation.Add(afternoonTalkStartTime + "PM Networking Event");
             }
             return formatedTrackInfomation;
