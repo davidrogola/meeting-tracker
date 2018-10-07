@@ -1,0 +1,9 @@
+<h4 class="alert alert-info">Upload Talk Schedule File</h4>
+<input #file type="file" required="required" class="form-control" multiple (change)="upload(file.files)" />
+<br />
+  <span *ngFor="let talk of talks">
+    {{talk}} <br />
+  </span>
+
+
+

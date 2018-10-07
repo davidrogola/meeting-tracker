@@ -1,0 +1,14 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Talk Schedules";
+}
+
+<h4 class="text-success">Generated Talk Schedule</h4>
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        @item <br />
+    }
+}
