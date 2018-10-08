@@ -38,3 +38,8 @@ Copy the following input test data into a text file and save on your local compu
 -	Ruby on Rails Legacy App Maintenance: 60min
 -	A World Without HackerNews: 30min
 -	User Interface CSS in Rails Apps: 30min
+## Execution Time
+The assignment took me 1 and half days to fully complete. The breakdown is as follows:
+* Coming up with a working prototype took half a day
+* Coding the final solution took a whole day to complete.
+ 
